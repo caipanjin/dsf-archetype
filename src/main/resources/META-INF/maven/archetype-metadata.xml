@@ -64,7 +64,7 @@
         </fileSet>
       </fileSets>
     </module>
-    <module id="${rootArtifactId}-service-facade" dir="app/common/service/facade" name="${rootArtifactId}-service-facade">
+    <module id="${rootArtifactId}-common-service-facade" dir="app/common/service/facade" name="${rootArtifactId}-common-service-facade">
       <fileSets>
         <fileSet filtered="true" packaged="true" encoding="UTF-8">
           <directory>src/main/java</directory>
@@ -80,7 +80,7 @@
         </fileSet>
       </fileSets>
     </module>
-    <module id="${rootArtifactId}-service-integration" dir="app/common/service/integration" name="${rootArtifactId}-service-integration">
+    <module id="${rootArtifactId}-common-service-integration" dir="app/common/service/integration" name="${rootArtifactId}-common-service-integration">
       <fileSets>
         <fileSet filtered="true" packaged="true" encoding="UTF-8">
           <directory>src/main/java</directory>
