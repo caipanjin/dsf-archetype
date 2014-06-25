@@ -9,8 +9,8 @@
 	</parent>
 	<artifactId>${artifactId}</artifactId>
 	<packaging>jar</packaging>
-	<name>bcdc-biz-maintaince</name>
-	<description>The biz maintaince module of bcdc project</description>
+	<name>${rootArtifactId}-biz-maintaince</name>
+	<description>The biz maintaince module of ${rootArtifactId} project</description>
 	<properties>
 		<skip_maven_deploy>false</skip_maven_deploy>
 	</properties>

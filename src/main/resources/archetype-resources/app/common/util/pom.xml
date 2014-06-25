@@ -10,8 +10,8 @@
 	<artifactId>${artifactId}</artifactId>
 	<version>${version}</version>
 	<packaging>jar</packaging>
-	<name>bcdc-common-util</name>
-	<description>The common util module of bcdc project</description>
+	<name>${rootArtifactId}-common-util</name>
+	<description>The common util module of ${rootArtifactId} project</description>
 	<properties>
 		<skip_maven_deploy>false</skip_maven_deploy>
 	</properties>
