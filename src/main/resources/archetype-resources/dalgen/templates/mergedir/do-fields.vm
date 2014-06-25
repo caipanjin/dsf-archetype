@@ -1,0 +1,45 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+    //========== properties ==========
+${symbol_pound}foreach(${symbol_dollar}column in ${symbol_dollar}table.columns) 
+
+	/**
+	 * This property corresponds to db column <tt>${symbol_dollar}{column.sqlName}</tt>.
+	 */
+${symbol_pound}if (${symbol_dollar}column.simpleJavaType == "Money")
+	private Money ${symbol_dollar}column.variableName = new Money(0, 0);
+${symbol_pound}else
+	private ${symbol_dollar}column.simpleJavaType ${symbol_dollar}column.variableName;
+${symbol_pound}end	
+${symbol_pound}end
+
+    //========== getters and setters ==========
+${symbol_pound}foreach(${symbol_dollar}column in ${symbol_dollar}table.columns) 
+
+    /**
+     * Getter method for property <tt>${symbol_dollar}column.variableName</tt>.
+     *
+     * @return property value of ${symbol_dollar}column.variableName
+     */
+	public ${symbol_dollar}column.simpleJavaType ${symbol_dollar}{column.getterName}() {
+		return ${symbol_dollar}column.variableName;
+	}
+	
+	/**
+	 * Setter method for property <tt>${symbol_dollar}column.variableName</tt>.
+	 * 
+	 * @param ${symbol_dollar}column.variableName value to be assigned to property ${symbol_dollar}column.variableName
+     */
+	public void ${symbol_dollar}{column.setterName}(${symbol_dollar}column.simpleJavaType ${symbol_dollar}column.variableName) {
+${symbol_pound}if (${symbol_dollar}column.simpleJavaType == "Money")
+		if (${symbol_dollar}column.variableName == null) {
+			this.${symbol_dollar}column.variableName = new Money(0, 0);
+		} else {
+			this.${symbol_dollar}column.variableName = ${symbol_dollar}column.variableName;
+		}
+${symbol_pound}else
+		this.${symbol_dollar}column.variableName = ${symbol_dollar}column.variableName;
+${symbol_pound}end	
+	}
+${symbol_pound}end

@@ -1,0 +1,30 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:osgi="http://www.springframework.org/schema/osgi"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+         http://www.springframework.org/schema/osgi http://www.springframework.org/schema/osgi/spring-osgi.xsd"
+	default-autowire="byName">
+    <!-- ======================================================================== -->
+    <!-- ======================================================================== -->
+${symbol_pound}foreach (${symbol_dollar}table in ${symbol_dollar}plugin.sortedTables)
+${symbol_pound}set (${symbol_dollar}parent = "bcdc-baseSqlMapClientDAO")
+${symbol_pound}if (${symbol_dollar}{table.isAutoSwitchDataSrc})
+${symbol_pound}set (${symbol_dollar}parent = "autoSwitchDataSrcBaseSqlMapClientDAO")
+${symbol_pound}end
+${symbol_pound}if(${symbol_dollar}{table.getTableConfig().getDrmConfig()} == true||(${symbol_dollar}{table.getTableConfig().bConfidentiality()} == true)||(${symbol_dollar}{table.getTableConfig().bIntegrity()} == true))
+    <bean id="${symbol_dollar}{table.beanName}DAO" class="${symbol_dollar}{table.package}.ibatis.Ibatis${symbol_dollar}{table.baseClassName}DAO" parent="${symbol_dollar}parent" init-method="register">
+			<property name = "methodUtils" ref = "methodUtils"/>
+    </bean>
+	<bean id = "methodUtils" class = "${symbol_dollar}{table.package}.utils.${symbol_dollar}{table.baseClassName}Utils">
+		<property name = "kmiClient" ref ="kmiClient"/>
+	</bean>
+${symbol_pound}else
+    <bean id="${symbol_dollar}{table.beanName}DAO" class="${symbol_dollar}{table.package}.ibatis.Ibatis${symbol_dollar}{table.baseClassName}DAO" parent="${symbol_dollar}parent"/>
+${symbol_pound}end
+${symbol_pound}end
+</beans>

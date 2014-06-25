@@ -1,0 +1,26 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+${symbol_pound}parse("copyright.vm")
+package ${symbol_dollar}{plugin.seqIbatisPackage};
+
+import org.springframework.orm.ibatis.support.SqlMapClientDaoSupport;
+${symbol_pound}if (${symbol_dollar}plugin.sequences.size() > 0)
+import org.springframework.dao.DataAccessException;
+${symbol_pound}end
+import ${symbol_dollar}{plugin.qualifiedSeqDAOClassName};
+
+/**
+ * An ibatis based implementation of dao interface <tt>${symbol_dollar}{plugin.qualifiedSeqDAOClassName}</tt>.
+ *
+${symbol_pound}parse("description-java.vm")
+ */
+public class ${symbol_dollar}{plugin.seqIbatisClassName} extends SqlMapClientDaoSupport implements ${symbol_dollar}{plugin.seqDAOClassName}{
+${symbol_pound}foreach (${symbol_dollar}seq in ${symbol_dollar}{plugin.sequences})
+${symbol_pound}parse("seq-description.vm")
+    public long ${symbol_dollar}{seq.operationName}() throws DataAccessException{
+        return ((Long) getSqlMapClientTemplate().queryForObject("${symbol_dollar}seq.mappedStatementId", null)).longValue();
+    }
+
+${symbol_pound}end
+}

@@ -1,0 +1,68 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+${symbol_pound}${symbol_pound}渲染中间部分
+	  //判断开关是否开
+  	  if (this.getPower() == false) {
+  		  //直接从原字段取值
+  		return (${symbol_dollar}{operation.simpleReturnType})getSqlMapClientTemplate().queryForList("${symbol_dollar}{operation.mappedStatementId}", ${symbol_dollar}{paramName});
+  	  }
+  	   //当开关开时，从新字段取数值
+		${symbol_dollar}{table.DOClassName} opDO = new ${symbol_dollar}{table.DOClassName}();
+		
+		${symbol_dollar}{operation.simpleReturnType} tempValue = (${symbol_dollar}{operation.simpleReturnType})getSqlMapClientTemplate().queryForList("${symbol_dollar}{operation.mappedStatementId}", ${symbol_dollar}{paramName});
+		
+		if (CollectionUtils.isEmpty(tempValue)){
+		    return tempValue;
+		}
+		
+${symbol_pound}if(${symbol_dollar}{table.getTableConfig().bIntegrity()} == true)	
+	    for (int i = 0 ; i < tempValue.size(); i++) {
+			opDO = tempValue.get(i);
+		    //调用完整性比较方法
+		    methodUtils.compareInteg(opDO);
+		   }
+${symbol_pound}end
+		//对于机密性和完整性，由于算法不同，所以分开考虑
+		${symbol_dollar}{operation.simpleReturnType} temp = new ArrayList<${symbol_dollar}{table.DOClassName}>();
+		for (int i = 0 ; i < tempValue.size(); i++) {
+		    opDO = tempValue.get(i);
+${symbol_pound}if(${symbol_dollar}{table.getTableConfig().bConfidentiality()} == true)        
+		  //获得被保护的机密性字段
+		  String conf = opDO.get${symbol_dollar}!{method_getConf}();
+		  if (conf == null) {
+		    logger.warn("数据库中该机密性字段为空");
+			temp.add(opDO);
+			continue;
+		  }
+		  //取得加密字段值
+		  int encodeStart = StringUtil.indexOfAny(conf,"@");
+		  String tempEncodeValue = StringUtil.substring(conf,0,encodeStart);
+		  //取得keyname及version
+		  int versionStart = StringUtil.indexOfAny(conf,"${symbol_pound}");
+		  String keyname = StringUtil.substring(conf,encodeStart+1,versionStart);
+		  int versionFromDB = Integer.parseInt(StringUtil.substring(conf,versionStart + 1,conf.length()));
+		   //将要解密的密文进行Base64解码
+		  byte[] encodeValueBytes = Base64.decode(tempEncodeValue);
+		  //对取出来的机密性字段做解密=====
+		  //取密钥
+		  KmiResult keyData = methodUtils.getKmiResultConf(keyname,appName,versionFromDB);
+		  //将该字段进行Base64解码
+		  byte[] bytes = Base64.decode(keyData.getKeyData()); 
+		  //解密
+		  byte[] resultBytes = null;
+		  String bytesToString = null;
+		  try {
+			resultBytes = SymmtricCryptoUtil.symmtricCrypto(encodeValueBytes, bytes, "AES", Cipher.DECRYPT_MODE);
+			//将解密后的数据转换为String类型
+		    bytesToString = new String(resultBytes);
+		  } catch (GeneralSecurityException e) {
+			logger.error("解密错误");
+			 throw new RuntimeException("数据机密性解密出错",e);
+		  }
+		  
+		  
+		  ${symbol_pound}${symbol_pound}//获得查询结果
+		   ${symbol_pound}${symbol_pound}temp = (${symbol_dollar}{operation.simpleReturnType})getSqlMapClientTemplate().queryForList("${symbol_dollar}{operation.mappedStatementId}", ${symbol_dollar}{paramName});
+          
+${symbol_pound}end      

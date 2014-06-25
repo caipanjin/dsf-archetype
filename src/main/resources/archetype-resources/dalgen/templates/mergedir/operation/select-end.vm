@@ -1,0 +1,39 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+${symbol_pound}${symbol_pound}根据不同情况渲染返回值情况，区分*和多查询字段问题
+${symbol_pound}if(${symbol_dollar}{operation.getAllField()} < 0) ${symbol_pound}${symbol_pound}当不是select *的时候
+${symbol_pound}if(${symbol_dollar}{operation.getField()} < 0)  ${symbol_pound}${symbol_pound}当是select XX from tableName时
+        //将机密后的字段放入查询时做了保护性的字段
+	    temp.add(finalStringValue);
+		 }
+	    return temp;
+	
+${symbol_pound}else 
+${symbol_pound}if(${symbol_dollar}{table.getTableConfig().bConfidentiality()} == true)
+${symbol_pound}${symbol_pound}parse ("operation/dynamic-extends.vm")
+          opDO.set${symbol_dollar}!{finalRet}(bytesToString);
+          temp.add(opDO);
+		  }
+          return temp;
+		  
+${symbol_pound}else
+           }
+          return getSqlMapClientTemplate().queryForList("${symbol_dollar}{operation.mappedStatementId}", ${symbol_dollar}{paramName});
+		  
+${symbol_pound}end
+${symbol_pound}end
+${symbol_pound}else
+${symbol_pound}if(${symbol_dollar}{table.getTableConfig().bConfidentiality()} == true)
+${symbol_pound}${symbol_pound}parse ("operation/dynamic-extends.vm")
+          opDO.set${symbol_dollar}!{finalRet}(bytesToString);
+          temp.add(opDO);
+		  }
+          return temp;
+	
+${symbol_pound}else
+            }
+          return getSqlMapClientTemplate().queryForList("${symbol_dollar}{operation.mappedStatementId}", ${symbol_dollar}{paramName});
+		 
+${symbol_pound}end
+${symbol_pound}end

@@ -1,0 +1,39 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<!-- ==========================================================  -->
+<!-- Configuration for ibatis sqlmap mapping.                    -->
+<!-- ==========================================================  -->
+
+${symbol_pound}parse("description-xml.vm")
+
+<sqlMap namespace="bcdc">
+    <!-- ============================================= -->
+    <!-- RESULT MAPS                                   -->
+    <!-- ============================================= -->
+
+    <!-- result map for Money class -->
+    <!-- <resultMap id="${symbol_dollar}{plugin.moneyResultMapId}" class="${symbol_dollar}plugin.moneyClass">
+        <result property="cent" columnIndex="1" jdbcType="NUMBER" nullValue="0"/>
+    </resultMap> -->
+
+    <!-- result map for Money class -->
+    <!-- <resultMap id="paygw.RM-MONEY" class="com.pinganfu.financenet.common.util.money.Money">
+        <result property="cent" columnIndex="1" jdbcType="NUMBER" nullValue="0"/>
+    </resultMap> -->
+    
+    <!-- ============================================= -->
+    <!-- mapped statements for SEQUENCE                -->
+    <!-- ============================================= -->
+${symbol_pound}foreach (${symbol_dollar}seq in ${symbol_dollar}{plugin.sequences})
+    <!-- mapped statement for ${symbol_dollar}{plugin.seqIbatisClassName}.${symbol_dollar}{seq.operationName} -->
+    <select id="${symbol_dollar}{seq.mappedStatementId}" resultClass="long">
+    <![CDATA[
+        ${symbol_dollar}{seq.mappedStatementSql}
+    ]]>
+    </select>
+${symbol_pound}end
+</sqlMap>

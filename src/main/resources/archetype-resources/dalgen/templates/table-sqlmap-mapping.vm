@@ -1,0 +1,102 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<!-- ==========================================================  -->
+<!-- Configuration for ibatis sqlmap mapping.                    -->
+<!-- ==========================================================  -->
+
+${symbol_pound}parse("description-xml.vm")
+
+<sqlMap namespace="iwallet">
+    <!-- ============================================= -->
+    <!-- RESULT MAPS                                   -->
+    <!-- ============================================= -->
+
+${symbol_pound}${symbol_pound}generate all other resultmaps
+    <!-- result maps for database table ${symbol_dollar}{table.sqlName} -->
+${symbol_pound}foreach (${symbol_dollar}resultMap in ${symbol_dollar}{table.resultMaps})
+    <resultMap id="${symbol_dollar}{resultMap.idAttr}" class="${symbol_dollar}{resultMap.classAttr}">
+${symbol_pound}foreach (${symbol_dollar}result in ${symbol_dollar}{resultMap.results})
+        <result property="${symbol_dollar}{result.property}" column="${symbol_dollar}{result.column}" javaType="${symbol_dollar}{result.javaType}" jdbcType="${symbol_dollar}{result.jdbcType}"${symbol_pound}if (${symbol_dollar}{result.hasNullValue}) nullValue="${symbol_dollar}{result.nullValue}"${symbol_pound}end/>
+${symbol_pound}end
+    </resultMap>
+
+${symbol_pound}end
+
+${symbol_pound}${symbol_pound}generate all statemetns
+    <!-- ============================================= -->
+    <!-- mapped statements for ${symbol_dollar}{table.ibatisClassName} -->
+    <!-- ============================================= -->
+${symbol_pound}foreach (${symbol_dollar}operation in ${symbol_dollar}{table.operations})
+    <!-- mapped statement for ${symbol_dollar}{table.ibatisClassName}.${symbol_dollar}{operation.name} -->
+${symbol_pound}if (${symbol_dollar}{operation.mappedStatementType} == "insert")
+    <insert id="${symbol_dollar}{operation.mappedStatementId}">
+${symbol_pound}if (${symbol_dollar}{table.hasSequence} && ${symbol_dollar}{table.iwPkColumn})
+    <selectKey resultClass="${symbol_dollar}{table.iwPkColumn.javaType}" keyProperty="${symbol_dollar}{table.iwPkColumn.variableName}">
+    <![CDATA[
+        select ${symbol_dollar}{table.sequence}.nextval from dual
+    ]]>
+    </selectKey>
+${symbol_pound}end
+${symbol_pound}if (${symbol_dollar}{operation.hasSqlmap})
+        ${symbol_dollar}operation.mappedStatementSql
+${symbol_pound}else
+    <![CDATA[
+        ${symbol_dollar}operation.mappedStatementSql
+    ]]>
+${symbol_pound}end
+    </insert>
+
+${symbol_pound}elseif (${symbol_dollar}{operation.mappedStatementType} == "select")
+${symbol_pound}if (${symbol_dollar}{operation.paging})
+    <select id="${symbol_dollar}{operation.mappedStatementId}" ${symbol_dollar}{operation.mappedStatementResult}>
+${symbol_pound}if (${symbol_dollar}{operation.hasSqlmap})
+        ${symbol_dollar}operation.mappedStatementSqlForPaging
+${symbol_pound}else
+    <![CDATA[
+        ${symbol_dollar}operation.mappedStatementSqlForPaging
+    ]]>
+${symbol_pound}end
+    </select>
+
+${symbol_pound}${symbol_pound} an additional select count(*) statement for paging
+    <!-- mapped statement for ${symbol_dollar}{table.ibatisClassName}.${symbol_dollar}{operation.name}, needed by paging -->
+    <select id="${symbol_dollar}{operation.mappedStatementIdForCount}" ${symbol_dollar}{operation.mappedStatementResultForCount} ${symbol_pound}if(${symbol_dollar}!{operation.getParameterClass()}) parameterClass = "${symbol_dollar}!{operation.getParameterClass()}" ${symbol_pound}end>
+${symbol_pound}if (${symbol_dollar}{operation.hasSqlmap})
+        ${symbol_dollar}operation.mappedStatementSqlForCount
+${symbol_pound}else
+    <![CDATA[
+        ${symbol_dollar}operation.mappedStatementSqlForCount
+    ]]>
+${symbol_pound}end
+    </select>
+
+${symbol_pound}else
+    <select id="${symbol_dollar}{operation.mappedStatementId}" ${symbol_dollar}{operation.mappedStatementResult} ${symbol_pound}if(${symbol_dollar}!{operation.getParameterClass()}) parameterClass = "${symbol_dollar}!{operation.getParameterClass()}" ${symbol_pound}end>
+${symbol_pound}if (${symbol_dollar}{operation.hasSqlmap})
+        ${symbol_dollar}operation.mappedStatementSql
+${symbol_pound}else
+    <![CDATA[
+        ${symbol_dollar}operation.mappedStatementSql
+    ]]>
+${symbol_pound}end
+    </select>
+
+${symbol_pound}end
+${symbol_pound}else
+    <${symbol_dollar}{operation.mappedStatementType} id="${symbol_dollar}{operation.mappedStatementId}" ${symbol_pound}if(${symbol_dollar}!{operation.getParameterClass()}) parameterClass = "${symbol_dollar}!{operation.getParameterClass()}" ${symbol_pound}end>
+${symbol_pound}if (${symbol_dollar}{operation.hasSqlmap})
+        ${symbol_dollar}operation.mappedStatementSql
+${symbol_pound}else
+    <![CDATA[
+        ${symbol_dollar}operation.mappedStatementSql
+    ]]>
+${symbol_pound}end
+    </${symbol_dollar}{operation.mappedStatementType}>
+
+${symbol_pound}end
+${symbol_pound}end
+</sqlMap>

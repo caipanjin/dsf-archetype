@@ -1,0 +1,5 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+    @SuppressWarnings("unchecked")
+    public ${symbol_dollar}operation.simpleReturnType ${symbol_dollar}{operation.name}(${symbol_pound}foreach (${symbol_dollar}param in ${symbol_dollar}operation.params)${symbol_pound}if(${symbol_dollar}velocityCount > 1), ${symbol_pound}end${symbol_dollar}{param.simpleJavaType} ${symbol_dollar}{param.name}${symbol_pound}end)${symbol_pound}if (${symbol_dollar}operation.simpleExceptions.size() > 0) throws ${symbol_pound}foreach (${symbol_dollar}e in ${symbol_dollar}operation.simpleExceptions)${symbol_pound}if(${symbol_dollar}velocityCount > 1), ${symbol_pound}end${symbol_dollar}{e}${symbol_pound}end${symbol_pound}end

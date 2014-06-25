@@ -1,0 +1,10 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+${symbol_pound}${symbol_pound}区分用户是否配置机密性及完整性字段
+${symbol_pound}${symbol_pound}如果配置机密性及完整性
+${symbol_pound}if((${symbol_dollar}{table.getTableConfig().bConfidentiality()} == true)||(${symbol_dollar}{table.getTableConfig().bIntegrity()} == true))
+${symbol_pound}parse ("operation/opbody-select-new.vm")
+${symbol_pound}else
+${symbol_pound}parse ("operation/opbody-select-old.vm")
+${symbol_pound}end	

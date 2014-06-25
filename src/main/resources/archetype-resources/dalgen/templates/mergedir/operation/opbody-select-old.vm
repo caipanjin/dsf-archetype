@@ -1,0 +1,74 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+{
+${symbol_pound}${symbol_pound} check parameters
+${symbol_pound}if (${symbol_dollar}{operation.paramType} == "object")
+    	if (${symbol_dollar}{operation.params.get(0).name} == null) {
+    		throw new IllegalArgumentException("Can't select by a null data object.");
+    	}
+
+${symbol_pound}end
+${symbol_pound}${symbol_pound} prepare parameters
+${symbol_pound}if (${symbol_dollar}{operation.params.size()} == 0)
+${symbol_pound}set (${symbol_dollar}paramName = "null")
+
+${symbol_pound}elseif (${symbol_dollar}{operation.params.size()} == 1)
+${symbol_pound}if (${symbol_dollar}{operation.param.javaTypePrimitive})
+        ${symbol_dollar}{operation.param.simpleJavaTypeForPrimitive} param = new ${symbol_dollar}{operation.param.simpleJavaTypeForPrimitive}(${symbol_dollar}{operation.param.name});
+${symbol_pound}set (${symbol_dollar}paramName = "param")
+
+${symbol_pound}else
+${symbol_pound}set (${symbol_dollar}paramName = ${symbol_dollar}{operation.param.name})
+
+${symbol_pound}end
+${symbol_pound}else
+        Map param = new HashMap();
+
+${symbol_pound}foreach (${symbol_dollar}param in ${symbol_dollar}{operation.params})
+${symbol_pound}if (${symbol_dollar}param.javaTypeForPrimitive)
+        param.put("${symbol_dollar}{param.name}", new ${symbol_dollar}{param.simpleJavaTypeForPrimitive}(${symbol_dollar}{param.name}));
+${symbol_pound}else
+        param.put("${symbol_dollar}{param.name}", ${symbol_dollar}{param.name});
+${symbol_pound}end
+${symbol_pound}end
+${symbol_pound}set (${symbol_dollar}paramName = "param")
+
+${symbol_pound}end
+${symbol_pound}${symbol_pound} execute query and return
+${symbol_pound}if (! ${symbol_dollar}{operation.paging})
+${symbol_pound}if (${symbol_dollar}{operation.multiplicity} == "one")
+${symbol_pound}if (${symbol_dollar}{operation.returnTypePrimitive})
+	    ${symbol_dollar}{operation.simpleReturnTypeForPrimitive} retObj = (${symbol_dollar}{operation.simpleReturnTypeForPrimitive}) getSqlMapClientTemplate().queryForObject("${symbol_dollar}{operation.mappedStatementId}", ${symbol_dollar}{paramName});
+
+		if (retObj == null) {
+		    return ${symbol_dollar}{operation.defaultReturnValue};
+		} else {
+		    return retObj.${symbol_dollar}{operation.simpleReturnType}Value();
+		}
+${symbol_pound}else
+        return (${symbol_dollar}{operation.simpleReturnType}) getSqlMapClientTemplate().queryForObject("${symbol_dollar}{operation.mappedStatementId}", ${symbol_dollar}{paramName});
+${symbol_pound}end
+${symbol_pound}else
+        return getSqlMapClientTemplate().queryForList("${symbol_dollar}{operation.mappedStatementId}", ${symbol_dollar}{paramName});
+${symbol_pound}end
+
+${symbol_pound}else
+        Paginator paginator = new Paginator();
+        paginator.setItemsPerPage(pageSize);
+        paginator.setPage(pageNum);
+
+        paginator.setItems(((Integer) getSqlMapClientTemplate().queryForObject("${symbol_dollar}{operation.mappedStatementIdForCount}", ${symbol_dollar}{paramName})).intValue());
+        
+        PageList  pageList = new PageList();
+        pageList.setPaginator(paginator);
+        
+        if (paginator.getBeginIndex() <= paginator.getItems()) {
+            ${symbol_dollar}{paramName}.put("${symbol_dollar}{operation.startRowName}", new Integer(paginator.getBeginIndex()));
+            ${symbol_dollar}{paramName}.put("${symbol_dollar}{operation.endRowName}", new Integer(paginator.getEndIndex()));
+            pageList.addAll(getSqlMapClientTemplate().queryForList("${symbol_dollar}{operation.mappedStatementId}", ${symbol_dollar}{paramName}));
+        }
+        
+        return pageList;
+${symbol_pound}end
+    }

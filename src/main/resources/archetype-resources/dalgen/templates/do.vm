@@ -1,0 +1,21 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+${symbol_pound}parse("copyright.vm")
+package ${symbol_dollar}{table.DOPackage};
+
+// auto generated imports
+${symbol_pound}foreach(${symbol_dollar}importClass in ${symbol_dollar}table.doImports) 
+import ${symbol_dollar}importClass;
+${symbol_pound}end
+
+/**
+ * A data object class directly models database table <tt>${symbol_dollar}table.sqlName</tt>.
+ *
+${symbol_pound}parse("description-java.vm")
+ */
+public class ${symbol_dollar}{table.DOClassName} {
+    private static final long serialVersionUID = 741231858441822688L;
+
+${symbol_pound}parse("do-fields.vm")
+}

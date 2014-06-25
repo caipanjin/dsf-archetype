@@ -1,0 +1,14 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+	 *  <p>
+	 *  The sql statement for this operation is <br>
+	 *  <tt>${symbol_dollar}operation.parsedSql</tt>
+	 *
+${symbol_pound}${symbol_pound}@param
+${symbol_pound}foreach (${symbol_dollar}param in ${symbol_dollar}{operation.params})
+	 *	@param ${symbol_dollar}param.name
+${symbol_pound}end
+${symbol_pound}${symbol_pound}@return
+	 *	@return ${symbol_dollar}{operation.simpleReturnType}
+	 *	@throws DataAccessException

@@ -1,0 +1,26 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+${symbol_pound}parse("copyright.vm")
+package ${symbol_dollar}{table.DAOPackage};
+
+// auto generated imports
+${symbol_pound}foreach(${symbol_dollar}importClass in ${symbol_dollar}table.daoImports) 
+import ${symbol_dollar}importClass;
+
+${symbol_pound}end
+
+/**
+ * A dao interface provides methods to access database table <tt>${symbol_dollar}table.sqlName</tt>.
+ *
+${symbol_pound}parse("description-java.vm")
+ */
+public interface ${symbol_dollar}{table.DAOClassName} {
+${symbol_pound}set (${symbol_dollar}daoName = ${symbol_dollar}{table.DAOClassName})
+${symbol_pound}${symbol_pound}parse("dao-name.vm")
+${symbol_pound}foreach(${symbol_dollar}operation in ${symbol_dollar}table.operations)
+
+${symbol_pound}parse("operation/op-${symbol_dollar}{operation.templateSuffix}.vm");
+
+${symbol_pound}end
+}

@@ -1,0 +1,4 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+    // TODO: the operation "${symbol_dollar}operation.name" you defined is not supported
