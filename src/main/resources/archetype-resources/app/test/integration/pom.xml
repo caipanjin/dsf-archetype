@@ -9,7 +9,7 @@
 	</parent>
 	<artifactId>${artifactId}</artifactId>
 	<packaging>jar</packaging>
-	<name>${rootArtifactId}-test-integration</name>
+	<name>${artifactId}</name>
 	<description>The test module of ${rootArtifactId} project</description>
 
 	<dependencies>

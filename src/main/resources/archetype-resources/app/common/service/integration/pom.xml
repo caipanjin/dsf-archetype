@@ -10,20 +10,9 @@
 	<artifactId>${artifactId}</artifactId>
 	<version>${version}</version>
 	<packaging>jar</packaging>
-	<name>${rootArtifactId}-service-integration</name>
+	<name>${artifactId}</name>
 	<description>The service-integration module of ${rootArtifactId} project</description>
 	<dependencies>
-		<dependency>
-			<groupId>com.pinganfu.ccdc</groupId>
-			<artifactId>ccdc-service-facade</artifactId>
-			<exclusions>
-				<exclusion>
-					<groupId>org.springframework</groupId>
-					<artifactId>spring</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-		
 		<dependency>
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>

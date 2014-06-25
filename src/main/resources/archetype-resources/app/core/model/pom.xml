@@ -11,7 +11,7 @@
 	<artifactId>${artifactId}</artifactId>
 	<version>${version}</version>
 	<packaging>jar</packaging>
-	<name>${rootArtifactId}-core-model</name>
+	<name>${artifactId}</name>
 	<description>The core model module of ${rootArtifactId} project</description>
 	<properties>
 		<skip_maven_deploy>false</skip_maven_deploy>

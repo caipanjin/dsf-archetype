@@ -5,7 +5,7 @@
 	<version>${version}</version>
 	<artifactId>${artifactId}</artifactId>
 	<packaging>jar</packaging>
-	<name>${artifactId}-service-facade</name>
+	<name>${artifactId}</name>
 	<description>The service facade module of ${artifactId} project</description>
 	<distributionManagement>
 		<repository>

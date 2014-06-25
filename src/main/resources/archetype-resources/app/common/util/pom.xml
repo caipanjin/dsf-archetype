@@ -10,7 +10,7 @@
 	<artifactId>${artifactId}</artifactId>
 	<version>${version}</version>
 	<packaging>jar</packaging>
-	<name>${rootArtifactId}-common-util</name>
+	<name>${artifactId}</name>
 	<description>The common util module of ${rootArtifactId} project</description>
 	<properties>
 		<skip_maven_deploy>false</skip_maven_deploy>

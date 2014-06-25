@@ -9,7 +9,7 @@
 	</parent>
 	<artifactId>${artifactId}</artifactId>
 	<packaging>jar</packaging>
-	<name>${rootArtifactId}-common-dal</name>
+	<name>${artifactId}</name>
 	<description>The service facade module of ${rootArtifactId} project</description>
 	<properties>
 		<skip_maven_deploy>false</skip_maven_deploy>

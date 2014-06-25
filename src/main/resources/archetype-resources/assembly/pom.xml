@@ -16,49 +16,49 @@
 	<artifactId>${artifactId}</artifactId>
 	<packaging>jar</packaging>
 	<name>${project.artifactId}</name>
-	<description>The all in one project of bcdc</description>
+	<description>The all in one project of ${rootArtifactId}</description>
 	<properties>
 		<skip_maven_deploy>false</skip_maven_deploy>
 	</properties>
 	<dependencies>
 		<dependency>
-			<groupId>com.pinganfu.bcdc</groupId>
-			<artifactId>bcdc-biz-maintaince</artifactId>
+			<groupId>${groupId}</groupId>
+			<artifactId>${rootArtifactId}-biz-maintaince</artifactId>
 			<version>${project.parent.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>com.pinganfu.bcdc</groupId>
-			<artifactId>bcdc-biz-service-impl</artifactId>
+			<groupId>${groupId}</groupId>
+			<artifactId>${rootArtifactId}-biz-service-impl</artifactId>
 			<version>${project.parent.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>com.pinganfu.bcdc</groupId>
-			<artifactId>bcdc-biz-share</artifactId>
+			<groupId>${groupId}</groupId>
+			<artifactId>${rootArtifactId}-biz-share</artifactId>
 			<version>${project.parent.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>com.pinganfu.bcdc</groupId>
-			<artifactId>bcdc-common-dal</artifactId>
+			<groupId>${groupId}</groupId>
+			<artifactId>${rootArtifactId}-common-dal</artifactId>
 			<version>${project.parent.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>com.pinganfu.bcdc</groupId>
-			<artifactId>bcdc-common-model</artifactId>
+			<groupId>${groupId}</groupId>
+			<artifactId>${rootArtifactId}-core-model</artifactId>
 			<version>${project.parent.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>com.pinganfu.bcdc</groupId>
-			<artifactId>bcdc-common-util</artifactId>
+			<groupId>${groupId}</groupId>
+			<artifactId>${rootArtifactId}-common-util</artifactId>
 			<version>${project.parent.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>com.pinganfu.bcdc</groupId>
-			<artifactId>bcdc-service-facade</artifactId>
+			<groupId>${groupId}</groupId>
+			<artifactId>${rootArtifactId}-common-service-facade</artifactId>
 			<version>${project.parent.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>com.pinganfu.bcdc</groupId>
-			<artifactId>bcdc-service-integration</artifactId>
+			<groupId>${groupId}</groupId>
+			<artifactId>${rootArtifactId}-common-service-integration</artifactId>
 			<version>${project.parent.version}</version>
 		</dependency>
 		<dependency>
@@ -170,14 +170,14 @@
 							<promoteTransitiveDependencies>true</promoteTransitiveDependencies>
 							<artifactSet>
 								<includes>
-									<include>com.pinganfu.bcdc:bcdc-biz-maintaince</include>
-									<include>com.pinganfu.bcdc:bcdc-biz-service-impl</include>
-									<include>com.pinganfu.bcdc:bcdc-biz-share</include>
-									<include>com.pinganfu.bcdc:bcdc-common-dal</include>
-									<include>com.pinganfu.bcdc:bcdc-common-model</include>
-									<include>com.pinganfu.bcdc:bcdc-common-util</include>
-									<include>com.pinganfu.bcdc:bcdc-service-facade</include>
-									<include>com.pinganfu.bcdc:bcdc-service-integration</include>
+									<include>${groupId}:${rootArtifactId}-biz-maintaince</include>
+									<include>${groupId}:${rootArtifactId}-biz-service-impl</include>
+									<include>${groupId}:${rootArtifactId}-biz-share</include>
+									<include>${groupId}:${rootArtifactId}-common-dal</include>
+									<include>${groupId}:${rootArtifactId}-core-model</include>
+									<include>${groupId}:${rootArtifactId}-common-util</include>
+									<include>${groupId}:${rootArtifactId}-common-service-facade</include>
+									<include>${groupId}:${rootArtifactId}-common-service-integration</include>
 								</includes>
 							</artifactSet>
 							<transformers>
