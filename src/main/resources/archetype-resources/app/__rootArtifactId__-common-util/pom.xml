@@ -12,14 +12,7 @@
 	<packaging>jar</packaging>
 	<name>${artifactId}</name>
 	<description>The common util module of ${rootArtifactId} project</description>
-	<properties>
-		<skip_maven_deploy>false</skip_maven_deploy>
-	</properties>
 	<dependencies>
-		<dependency>
-				<groupId>cglib</groupId>
-				<artifactId>cglib-nodep</artifactId>
-			</dependency>
 		<dependency>
 			<groupId>commons-codec</groupId>
 			<artifactId>commons-codec</artifactId>
@@ -28,17 +21,19 @@
 			<groupId>commons-lang</groupId>
 			<artifactId>commons-lang</artifactId>
 		</dependency>
-			<dependency>
-				<groupId>org.springframework</groupId>
-				<artifactId>spring-core</artifactId>
-			</dependency>
+		
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 		</dependency>
 		<dependency>
-				<groupId>log4j</groupId>
-				<artifactId>log4j</artifactId>
-			</dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 </project>

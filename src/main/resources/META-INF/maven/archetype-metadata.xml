@@ -38,7 +38,7 @@
     </fileSet>
   </fileSets>
   <modules>
-    <module id="${rootArtifactId}-common-util" dir="app/common/util" name="${rootArtifactId}-common-util">
+    <module id="${rootArtifactId}-common-util" dir="app/__rootArtifactId__-common-util" name="${rootArtifactId}-common-util">
       <fileSets>
         <fileSet filtered="true" packaged="true" encoding="UTF-8">
           <directory>src/main/java</directory>
@@ -48,7 +48,7 @@
         </fileSet>
       </fileSets>
     </module>
-    <module id="${rootArtifactId}-common-dal" dir="app/common/dal" name="${rootArtifactId}-common-dal">
+    <module id="${rootArtifactId}-common-dal" dir="app/__rootArtifactId__-common-dal" name="${rootArtifactId}-common-dal">
       <fileSets>
         <fileSet filtered="true" packaged="true" encoding="UTF-8">
           <directory>src/main/java</directory>
@@ -64,7 +64,7 @@
         </fileSet>
       </fileSets>
     </module>
-    <module id="${rootArtifactId}-common-service-facade" dir="app/common/service/facade" name="${rootArtifactId}-common-service-facade">
+    <module id="${rootArtifactId}-common-service-facade" dir="app/__rootArtifactId__-common-service-facade" name="${rootArtifactId}-common-service-facade">
       <fileSets>
         <fileSet filtered="true" packaged="true" encoding="UTF-8">
           <directory>src/main/java</directory>
@@ -80,7 +80,7 @@
         </fileSet>
       </fileSets>
     </module>
-    <module id="${rootArtifactId}-common-service-integration" dir="app/common/service/integration" name="${rootArtifactId}-common-service-integration">
+    <module id="${rootArtifactId}-common-service-integration" dir="app/__rootArtifactId__-common-service-integration" name="${rootArtifactId}-common-service-integration">
       <fileSets>
         <fileSet filtered="true" packaged="true" encoding="UTF-8">
           <directory>src/main/java</directory>
@@ -96,10 +96,8 @@
         </fileSet>
       </fileSets>
     </module>
-    <module id="${rootArtifactId}-core-model" dir="app/core/model" name="${rootArtifactId}-core-model" />
-    <module id="${rootArtifactId}-biz-share" dir="app/biz/share" name="${rootArtifactId}-biz-share" />
-    <module id="${rootArtifactId}-biz-maintaince" dir="app/biz/maintaince" name="${rootArtifactId}-biz-maintaince" />
-    <module id="${rootArtifactId}-biz-service-impl" dir="app/biz/service-impl" name="${rootArtifactId}-biz-service-impl">
+    <module id="${rootArtifactId}-core-service" dir="app/__rootArtifactId__-core-service" name="${rootArtifactId}-core-service" />
+    <module id="${rootArtifactId}-biz-service-impl" dir="app/__rootArtifactId__-biz-service-impl" name="${rootArtifactId}-biz-service-impl">
       <fileSets>
         <fileSet filtered="true" packaged="true" encoding="UTF-8">
           <directory>src/main/java</directory>
@@ -115,7 +113,7 @@
         </fileSet>
       </fileSets>
     </module>
-    <module id="${rootArtifactId}-test-integration" dir="app/test/integration" name="${rootArtifactId}-test-integration">
+    <module id="${rootArtifactId}-test" dir="app/__rootArtifactId__-test" name="${rootArtifactId}-test">
       <fileSets>
         <fileSet filtered="true" packaged="true" encoding="UTF-8">
           <directory>src/test/java</directory>

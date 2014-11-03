@@ -12,33 +12,13 @@
 	<name>${rootArtifactId}-biz-service-impl</name>
 	<description>The biz service impl module of ${rootArtifactId} project</description>
 	<dependencies>
-		<!-- Log libs -->
-		<dependency>
-			<groupId>log4j</groupId>
-			<artifactId>log4j</artifactId>
-		</dependency>
-		<!-- Test libs -->
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<scope>test</scope>
-		</dependency>
-		
 		<dependency>
 			<groupId>${groupId}</groupId>
 			<artifactId>${rootArtifactId}-common-service-facade</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>${groupId}</groupId>
-			<artifactId>${rootArtifactId}-common-service-integration</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>${groupId}</groupId>
-			<artifactId>${rootArtifactId}-common-dal</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>${groupId}</groupId>
-			<artifactId>${rootArtifactId}-common-util</artifactId>
+			<artifactId>${rootArtifactId}-core-service</artifactId>
 		</dependency>
 	</dependencies>
 </project>

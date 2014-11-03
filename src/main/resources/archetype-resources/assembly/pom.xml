@@ -23,17 +23,7 @@
 	<dependencies>
 		<dependency>
 			<groupId>${groupId}</groupId>
-			<artifactId>${rootArtifactId}-biz-maintaince</artifactId>
-			<version>${project.parent.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>${groupId}</groupId>
 			<artifactId>${rootArtifactId}-biz-service-impl</artifactId>
-			<version>${project.parent.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>${groupId}</groupId>
-			<artifactId>${rootArtifactId}-biz-share</artifactId>
 			<version>${project.parent.version}</version>
 		</dependency>
 		<dependency>
@@ -43,7 +33,7 @@
 		</dependency>
 		<dependency>
 			<groupId>${groupId}</groupId>
-			<artifactId>${rootArtifactId}-core-model</artifactId>
+			<artifactId>${rootArtifactId}-core-service</artifactId>
 			<version>${project.parent.version}</version>
 		</dependency>
 		<dependency>
@@ -170,11 +160,9 @@
 							<promoteTransitiveDependencies>true</promoteTransitiveDependencies>
 							<artifactSet>
 								<includes>
-									<include>${groupId}:${rootArtifactId}-biz-maintaince</include>
 									<include>${groupId}:${rootArtifactId}-biz-service-impl</include>
-									<include>${groupId}:${rootArtifactId}-biz-share</include>
 									<include>${groupId}:${rootArtifactId}-common-dal</include>
-									<include>${groupId}:${rootArtifactId}-core-model</include>
+									<include>${groupId}:${rootArtifactId}-core-service</include>
 									<include>${groupId}:${rootArtifactId}-common-util</include>
 									<include>${groupId}:${rootArtifactId}-common-service-facade</include>
 									<include>${groupId}:${rootArtifactId}-common-service-integration</include>

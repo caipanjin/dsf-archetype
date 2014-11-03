@@ -7,11 +7,21 @@
 		<version>${version}</version>
 		<relativePath>../../../pom.xml</relativePath>
 	</parent>
+	<groupId>${groupId}</groupId>
 	<artifactId>${artifactId}</artifactId>
+	<version>${version}</version>
 	<packaging>jar</packaging>
-	<name>${rootArtifactId}-biz-maintaince</name>
-	<description>The biz maintaince module of ${rootArtifactId} project</description>
-	<properties>
-		<skip_maven_deploy>false</skip_maven_deploy>
-	</properties>
+	<name>${artifactId}</name>
+	<description>The core service module of ${rootArtifactId} project</description>
+	<dependencies>
+		<dependency>
+			<groupId>${groupId}</groupId>
+			<artifactId>${rootArtifactId}-common-service-integration</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>${groupId}</groupId>
+			<artifactId>${rootArtifactId}-common-dal</artifactId>
+		</dependency>
+	</dependencies>
+	
 </project>
