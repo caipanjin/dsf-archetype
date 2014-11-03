@@ -254,6 +254,11 @@
 				<artifactId>${rootArtifactId}-common-service-integration</artifactId>
 				<version>${version}</version>
 			</dependency>
+			<dependency>
+				<groupId>${groupId}</groupId>
+				<artifactId>${rootArtifactId}-core-service</artifactId>
+				<version>${version}</version>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
 	<build>
