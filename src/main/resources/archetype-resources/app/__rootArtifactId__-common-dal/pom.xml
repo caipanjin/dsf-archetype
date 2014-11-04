@@ -5,15 +5,13 @@
 		<groupId>${groupId}</groupId>
 		<artifactId>${rootArtifactId}</artifactId>
 		<version>${version}</version>
-		<relativePath>../pom.xml</relativePath>
+		<relativePath>../../pom.xml</relativePath>
 	</parent>
 	<artifactId>${artifactId}</artifactId>
 	<packaging>jar</packaging>
 	<name>${artifactId}</name>
 	<description>The service facade module of ${rootArtifactId} project</description>
-	<properties>
-		<skip_maven_deploy>false</skip_maven_deploy>
-	</properties>
+	
 	<dependencies>
 		<dependency>
 			<groupId>org.aspectj</groupId>
