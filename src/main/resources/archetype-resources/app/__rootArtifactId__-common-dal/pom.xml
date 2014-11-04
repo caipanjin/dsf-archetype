@@ -26,11 +26,11 @@
 			<artifactId>commons-dbcp</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>com.ibatis</groupId>
-			<artifactId>ibatis</artifactId>
+			<groupId>org.apache.ibatis</groupId>
+			<artifactId>ibatis-sqlmap</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>oracle.jdbc.driver</groupId>
+			<groupId>com.oracle</groupId>
 			<artifactId>ojdbc6</artifactId>
 		</dependency>
 		<dependency>

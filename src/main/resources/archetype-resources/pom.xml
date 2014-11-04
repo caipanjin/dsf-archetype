@@ -185,7 +185,7 @@
 			</dependency>
 			<dependency>
 				<groupId>org.apache.ibatis</groupId>
-				<artifactId>org.apache.ibatis</artifactId>
+				<artifactId>ibatis-sqlmap</artifactId>
 				<version>${ibatis_version}</version>
 			</dependency>
 			<dependency>
