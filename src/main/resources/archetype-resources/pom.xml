@@ -9,7 +9,7 @@
 	<description>${rootArtifactId} parent</description>
 	<properties>
 		<skip_maven_deploy>true</skip_maven_deploy>
-		<dubbo.version>2.5.3.pinganfu.1.0.1</dubbo.version>
+		<dubbo.version>2.5.3</dubbo.version>
 		<spring.version>3.2.3.RELEASE</spring.version>
 		<javassist_version>3.15.0-GA</javassist_version>
 		<netty_version>3.2.5.Final</netty_version>
@@ -60,9 +60,9 @@
 				<version>2.6</version>
 			</dependency>
 			<dependency>
-				<groupId>oracle.jdbc.driver</groupId>
+				<groupId>com.oracle</groupId>
 				<artifactId>ojdbc6</artifactId>
-				<version>11.2.0</version>
+				<version>11.2.0.4</version>
 			</dependency>
 			<dependency>
 				<groupId>com.alibaba</groupId>
@@ -188,8 +188,8 @@
 				<version>1.4</version>
 			</dependency>
 			<dependency>
-				<groupId>com.ibatis</groupId>
-				<artifactId>ibatis</artifactId>
+				<groupId>org.apache.ibatis</groupId>
+				<artifactId>org.apache.ibatis</artifactId>
 				<version>${ibatis_version}</version>
 			</dependency>
 			<dependency>
