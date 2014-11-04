@@ -113,28 +113,14 @@
 
 				<executions>
 					<execution>
-						<id>make-zip</id>
-						<phase>package</phase>
-						<goals>
-							<goal>single</goal>
-						</goals>
-						<configuration>
-							<!-- not append assembly id in release file name -->
-							<skipAssembly>false</skipAssembly>
-							<appendAssemblyId>true</appendAssemblyId>
-							<descriptors>
-								<descriptor>src/main/assembly/jar.xml</descriptor>
-							</descriptors>
-						</configuration>
-					</execution>
-					<execution>
 						<id>make-war</id>
 						<phase>package</phase>
 						<goals>
 							<goal>single</goal>
 						</goals>
 						<configuration>
-							<appendAssemblyId>true</appendAssemblyId>
+							<finalName>${rootArtifactId}</finalName>
+							<appendAssemblyId>false</appendAssemblyId>
 							<skipAssembly>false</skipAssembly>
 							<descriptors>
 								<descriptor>src/main/assembly/war.xml</descriptor>
@@ -265,6 +251,13 @@
 					</execution>
 				</executions>
 			</plugin>
+			<plugin>
+                <groupId>org.mortbay.jetty</groupId>
+                <artifactId>maven-jetty-plugin</artifactId>
+                <configuration>
+                    <webApp>${basedir}/target/${rootArtifactId}.war</webApp>
+                </configuration>
+            </plugin>
 		</plugins>
 	</build>
 </project>
