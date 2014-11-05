@@ -53,53 +53,6 @@
 		</layout>
 	</appender>
 	
-	<appender name="ERROR_FMD_FILE" class="org.apache.log4j.DailyRollingFileAppender">
-		<param name="Encoding" value="UTF-8" />
-		<param name="File" value="/wls/applogs/rtlog/fncplogs/fmd/biz/error-fmd.log" />
-		<param name="DatePattern" value="'.'yyyy-MM-dd" />
-		<param name="Append" value="true" />
-		<param name="Threshold" value="ERROR" />
-		<layout class="org.apache.log4j.PatternLayout">
-			<param name="ConversionPattern" value="[%d{yyyy/MM/dd HH:mm:ss,SSS}]%m%n" />
-		</layout>
-	</appender>
-	
-	<appender name="ERROR_BCDC_FILE" class="org.apache.log4j.DailyRollingFileAppender">
-		<param name="Encoding" value="UTF-8" />
-		<param name="File" value="/wls/applogs/rtlog/fncplogs/bcdc/biz/error-bcdc.log" />
-		<param name="DatePattern" value="'.'yyyy-MM-dd" />
-		<param name="Append" value="true" />
-		<param name="Threshold" value="ERROR" />
-		<layout class="org.apache.log4j.PatternLayout">
-			<param name="ConversionPattern" value="[%d{yyyy/MM/dd HH:mm:ss,SSS}]%m%n" />
-		</layout>
-	</appender>
-	
-	<appender name="ERROR_CCDC_FILE" class="org.apache.log4j.DailyRollingFileAppender">
-		<param name="Encoding" value="UTF-8" />
-		<param name="File" value="/wls/applogs/rtlog/fncplogs/ccdc/biz/error-ccdc.log" />
-		<param name="DatePattern" value="'.'yyyy-MM-dd" />
-		<param name="Append" value="true" />
-		<param name="Threshold" value="ERROR" />
-		<layout class="org.apache.log4j.PatternLayout">
-			<param name="ConversionPattern" value="[%d{yyyy/MM/dd HH:mm:ss,SSS}]%m%n" />
-		</layout>
-	</appender>
-
-	<appender name="COMMON_FILE" class="org.apache.log4j.DailyRollingFileAppender">
-		<param name="Encoding" value="UTF-8" />
-		<param name="File" value="/wls/applogs/rtlog/fncplogs/fdcs/common/common-fdcs.log" />
-		<param name="DatePattern" value="'.'yyyy-MM-dd" />
-		<param name="Append" value="true" />
-		<layout class="org.apache.log4j.PatternLayout">
-			<param name="ConversionPattern" value="[%d{yyyy/MM/dd HH:mm:ss,SSS}]%m%n" />
-		</layout>
-		<filter class="org.apache.log4j.varia.LevelRangeFilter">
-			<param name="levelMin" value="INFO" />
-			<param name="levelMax" value="FATAL" />
-			<param name="AcceptOnMatch" value="true" />
-		</filter>
-	</appender>
 
 	<appender name="DUBBO_FILE" class="org.apache.log4j.DailyRollingFileAppender">
 		<param name="Encoding" value="UTF-8" />
@@ -111,26 +64,7 @@
 		</layout>
 	</appender>
 	
-	<appender name="DUBBO_ERROR_FILE" class="org.apache.log4j.DailyRollingFileAppender">
-		<param name="Encoding" value="UTF-8" />
-		<param name="File" value="/wls/applogs/rtlog/fncplogs/fdcs/common/dubbo-error.log" />
-		<param name="DatePattern" value="'.'yyyy-MM-dd" />
-		<param name="Threshold" value="ERROR" />
-		<param name="Append" value="true" />
-		<layout class="org.apache.log4j.PatternLayout">
-			<param name="ConversionPattern" value="[%d{yyyy/MM/dd HH:mm:ss,SSS}]%m%n" />
-		</layout>
-	</appender>
 	
-	<appender name="SERVER_FMD_FILE" class="org.apache.log4j.DailyRollingFileAppender">
-		<param name="Encoding" value="UTF-8" />
-		<param name="File" value="/wls/applogs/rtlog/fncplogs/fmd/biz/fmd.log" />
-		<param name="DatePattern" value="'.'yyyy-MM-dd'.log'" />
-		<param name="Append" value="true" />
-		<layout class="org.apache.log4j.PatternLayout">
-			<param name="ConversionPattern" value="[%d{yyyy/MM/dd HH:mm:ss,SSS}]%m%n" />
-		</layout>
-	</appender>
 	
 	<appender name="SERVER_BCDC_FILE" class="org.apache.log4j.DailyRollingFileAppender">
 		<param name="Encoding" value="UTF-8" />
@@ -141,30 +75,20 @@
 			<param name="ConversionPattern" value="[%d{yyyy/MM/dd HH:mm:ss,SSS}]%m%n" />
 		</layout>
 	</appender>
-	
-	<appender name="SERVER_CCDC_FILE" class="org.apache.log4j.DailyRollingFileAppender">
-		<param name="Encoding" value="UTF-8" />
-		<param name="File" value="/wls/applogs/rtlog/fncplogs/ccdc/biz/ccdc.log" />
-		<param name="DatePattern" value="'.'yyyy-MM-dd'.log'" />
-		<param name="Append" value="true" />
-		<layout class="org.apache.log4j.PatternLayout">
-			<param name="ConversionPattern" value="[%d{yyyy/MM/dd HH:mm:ss,SSS}]%m%n" />
-		</layout>
-	</appender>
 
 	<logger name="com.pinganfu.common.aop.ibatis.advice.IbatisCostAdvice"
 		additivity="true">
-		<level value="DEBUG" />
+		<level value="INFO" />
 		<appender-ref ref="DAL_LOG_FILE" />
 	</logger>
 	
 	<logger name="com.pinganfu.hummer.filter.log.ServiceInLogProviderFilter" additivity="false">
-		<level value="DEBUG" />
+		<level value="INFO" />
 		<appender-ref ref="SERVICE_IN_LOG_FILE" />
 	</logger>
 	
 	<logger name="com.pinganfu.hummer.filter.log.ServiceOutLogConsumerFilter" additivity="false">
-		<level value="DEBUG" />
+		<level value="INFO" />
 		<appender-ref ref="SERVICE_OUT_LOG_FILE" />
 	</logger>
 	
@@ -173,29 +97,15 @@
 		<appender-ref ref="SERVER_FMD_FILE" />
 		<appender-ref ref="ERROR_FMD_FILE" />
 	</logger>
-	
-	<logger name="${package}" additivity="false">
-		<level value="INFO" />
-		<appender-ref ref="SERVER_BCDC_FILE" />
-		<appender-ref ref="ERROR_BCDC_FILE" />
-	</logger>
-	
-	<logger name="com.pinganfu.ccdc" additivity="false">
-		<level value="INFO" />
-		<appender-ref ref="SERVER_CCDC_FILE" />
-		<appender-ref ref="ERROR_CCDC_FILE" />
-	</logger>
-	
+		
 	<logger name="com.alibaba.dubbo" additivity="false">
 		<level value="DEBUG" />
 		<appender-ref ref="DUBBO_FILE" />
-		<appender-ref ref="DUBBO_ERROR_FILE" />
 	</logger>
 
 
 	<root>
 		<level value="INFO" />
-		<appender-ref ref="COMMON_FILE" />
 		<appender-ref ref="ERROR_FILE" />
 	</root>
 </log4j:configuration>

@@ -12,7 +12,7 @@
 		<property name="ignoreResourceNotFound" value="true" />
 		<property name="locations">
 			<list>
-				<value>/WEB-INF/dubbo.properties</value>
+				<value>/WEB-INF/env.properties</value>
 				<value>file://${user.home}/env.properties</value>
 			</list>
 		</property>
