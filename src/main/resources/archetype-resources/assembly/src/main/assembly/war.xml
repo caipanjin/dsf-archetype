@@ -10,7 +10,7 @@
     <includeBaseDirectory>false</includeBaseDirectory>
     <fileSets>
         <fileSet>
-            <directory>src/main/config</directory>
+            <directory>src/main/resources</directory>
             <outputDirectory>WEB-INF/classes</outputDirectory>
         </fileSet>
         <fileSet>
