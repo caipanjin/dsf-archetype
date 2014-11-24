@@ -16,7 +16,7 @@
 	<!-- type mapping is not satisfactory, you can use typemap to   -->
 	<!-- convert it to a more appropriate one.                      -->
 	<!-- ========================================================== -->
-    <appName>bcdc</appName>
+    <appName>${rootArtifactId}</appName>
 
 	
 	<typemap from="java.sql.Date" to="java.util.Date" />
@@ -26,13 +26,13 @@
 	<typemap from="short" to="int" />
 
 	<!--  表名前缀 -->
-	<tableprefix prefix="bcdc" />
+	<tableprefix prefix="${rootArtifactId}" />
 
 	<!-- 数据库表 -->
-	<include table="tables/SIGN_BANK_CARD.xml" />
-	<include table="tables/SIGN_USER_CARD_RELATION.xml" />
+	<include table="tables/YOUR_TABLE.xml" />
+
 
 	<!-- SEQUENCE -->
-	<seq name="SIGN_BANK_CARD_ID_SEQ" />
-	<seq name="SIGN_USER_CARD_RELATION_ID_SEQ" />
+	<seq name="YOUR_SEQ" />
+
 </tables>

@@ -6,7 +6,7 @@
 <project name="dalgen" default="release" basedir=".">
 	<!-- define properties -->
 	<property environment="env" /> 
-	<property name="name" value="bcdc-dalgen" />
+	<property name="name" value="${rootArtifactId}-dalgen" />
 
 	<loadproperties srcFile="db.properties" />
 
@@ -16,7 +16,7 @@
 	<property name="dir.lib" value="${symbol_dollar}{basedir}/lib" />
 	<echo message="dir.lib=${symbol_dollar}{dir.lib}"/>
 	<property name="dir.target" value="${symbol_dollar}{basedir}/target" />
-	<property name="dir.deploy" value="${symbol_dollar}{basedir}/../app/common/dal/src/main" />
+	<property name="dir.deploy" value="${symbol_dollar}{basedir}/../app/${rootArtifactId}-common-dal/src/main" />
 
 	<!-- properties for middlegen plugin -->
 	<property name="middlegen.templates" value="templates" />
@@ -30,8 +30,8 @@
 	<!--property name="database.driver.file" value="${symbol_dollar}{dir.lib}/mysql-jdbc-5.0.4.jar" /-->
 	
 	<property name="database.driver.classpath" value="${symbol_dollar}{database.driver.file}" />
-	<property name="database.driver" value="oracle.jdbc.driver.OracleDriver" />
-	<!--property name="database.driver" value="com.mysql.jdbc.Driver" /-->
+	<!--<property name="database.driver" value="oracle.jdbc.driver.OracleDriver" />-->
+	<property name="database.driver" value="com.mysql.jdbc.Driver" />
 	<!-- classpath -->
 	<path id="classpath.main">
 		<pathelement path="${symbol_dollar}{dir.conf}" />
@@ -51,7 +51,7 @@
 				<exclude name="**/*doc.jar" />
 			</fileset>
 		</copy-->
-		<unjar src="${symbol_dollar}{dir.lib}/pinganfu-tools-dalgen-0.0.1.jar" dest="${symbol_dollar}{dir.conf}" />
+		<unjar src="${symbol_dollar}{dir.lib}/tools-dalgen-0.0.1.jar" dest="${symbol_dollar}{dir.conf}" />
 		<copy file="${symbol_dollar}{dir.conf}/middlegen-plugin.xml" todir="${symbol_dollar}{dir.conf}/META-INF" />
 	</target>
 
@@ -72,10 +72,10 @@
 
 		<taskdef name="middlegen" classname="middlegen.MiddlegenTask" classpathref="classpath.main" />
 		<echo message="" />
-		<input message="正在生成BCDC-DAL，请输入目标表名,多表以逗号分隔,全表生成请输入'*',只生成Sequence请输入'seq': " addproperty="tabs" />
+		<input message="正在生成${rootArtifactId}-DAL，请输入目标表名,多表以逗号分隔,全表生成请输入'*',只生成Sequence请输入'seq': " addproperty="tabs" />
 
-		<echo message="BCDC-DAL配置文件：${symbol_dollar}{middlegen.config.file}." />
-		<echo message="开始自动生成BCDC-DAL..." />
+		<echo message="${rootArtifactId}-DAL配置文件：${symbol_dollar}{middlegen.config.file}." />
+		<echo message="开始自动生成${rootArtifactId}-DAL..." />
 
 		<mkdir dir="${symbol_dollar}{middlegen.destination}" />
 		<middlegen configfile="${symbol_dollar}{middlegen.config.file}" runModel="SOFA" tabs="${symbol_dollar}{tabs}" appname="${symbol_dollar}{name}" databaseurl="${symbol_dollar}{database.url}" driver="${symbol_dollar}{database.driver}" username="${symbol_dollar}{database.userid}" password="${symbol_dollar}{database.password}" schema="${symbol_dollar}{database.schema}" prefsdir="${symbol_dollar}{dir.target}">
@@ -112,7 +112,7 @@
 				<fileproducer destination="${symbol_dollar}{middlegen.destination}/resources/META-INF/spring" template="${symbol_dollar}{middlegen.templates}/beans-dal-dao.vm" filename="bcdc-common-dal-dao.xml" />
 			</iwallet>
 		</middlegen>
-		<echo message="BCDC DAL生成已成功!" />
+		<echo message="${rootArtifactId}-DAL生成已成功!" />
 	</target>
 
     <!-- 如果target目录不存在，会中断build，换成basedir一定存在的 -->
