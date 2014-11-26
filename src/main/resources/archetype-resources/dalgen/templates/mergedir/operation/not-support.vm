@@ -1,5 +1,0 @@
-#set( $symbol_pound = '#' )
-#set( $symbol_dollar = '$' )
-#set( $symbol_escape = '\' )
-        // TODO: don't forget to implement ${symbol_dollar}{table.ibatisClassName}.${symbol_dollar}{operation.name}
-        throw new UnsupportedOperationException("This operation has not been implemented yet!");

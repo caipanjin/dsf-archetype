@@ -1,9 +1,0 @@
-#set( $symbol_pound = '#' )
-#set( $symbol_dollar = '$' )
-#set( $symbol_escape = '\' )
-	/**
-	 *  Insert one <tt>${symbol_dollar}table.DOClassName</tt> object to DB table <tt>${symbol_dollar}table.sqlName</tt>, return primary key
-	 *
-${symbol_pound}parse("operation/op-javadoc.vm")	 
-	 */	 
-${symbol_pound}parse("operation/op-signature.vm")

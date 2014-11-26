@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="GBK"?>
+<!DOCTYPE table SYSTEM "table-config-1.0.dtd">
+
+<table sqlname="global_param">
+	<!-- 不需要配置的列请删除,一般只有Money类型的column需要配置: com.iwallet.biz.common.util.money.Money -->
+
+	<sql id="GlobalParam.columns">
+		id, param_key, param_value, param_type,
+		gmt_create, operator, gmt_modified
+	</sql>
+
+	<operation name="insert" paramtype="object">
+		<sql>
+			INSERT INTO global_param (
+			id  ,param_key
+			,param_value ,param_type ,gmt_create
+			,operator ,gmt_modified
+			) VALUES (
+			? ,? ,? ,? ,? ,? ,?
+			)
+		</sql>
+	</operation>
+
+	<operation name="delete">
+		<sql>
+			DELETE FROM global_param WHERE
+			id = ?
+		</sql>
+	</operation>
+
+	<operation name="update" paramtype="object">
+		<sql>
+			UPDATE global_param SET
+			 param_key = ?
+			,param_value = ? ,param_type = ? ,gmt_create = ?
+			,operator = ?
+			,gmt_modified = ?
+			WHERE
+			id = ?
+		</sql>
+	</operation>
+
+	<operation name="queryById" multiplicity="one">
+		<sql>
+			SELECT
+			<include refid="GlobalParam.columns" />
+			FROM global_param
+			WHERE
+			id = ?
+		</sql>
+	</operation>
+
+
+	<operation name="findPage" multiplicity="paging">
+		<sql>
+			SELECT
+			<include refid="GlobalParam.columns" />
+			FROM global_param
+		</sql>
+	</operation>
+	
+	<operation name="queryGlobalParam" multiplicity = "many">
+		<sql>
+			SELECT
+			<include refid="GlobalParam.columns" />
+			FROM global_param
+		</sql>
+	</operation>
+
+</table>

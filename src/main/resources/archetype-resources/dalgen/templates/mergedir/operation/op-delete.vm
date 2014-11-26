@@ -1,9 +1,0 @@
-#set( $symbol_pound = '#' )
-#set( $symbol_dollar = '$' )
-#set( $symbol_escape = '\' )
-	/**
-	 *  Delete records from DB table <tt>${symbol_dollar}table.sqlName</tt>.
-	 *
-${symbol_pound}parse("operation/op-javadoc.vm")	 
-	 */	 
-${symbol_pound}parse("operation/op-signature.vm")

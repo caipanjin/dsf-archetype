@@ -1,8 +1,0 @@
-#set( $symbol_pound = '#' )
-#set( $symbol_dollar = '$' )
-#set( $symbol_escape = '\' )
-${symbol_pound}if((${symbol_dollar}{table.getTableConfig().bConfidentiality()} == true)||(${symbol_dollar}{table.getTableConfig().bIntegrity()} == true))
-${symbol_pound}parse("ibatis-new.vm")
-${symbol_pound}else
-${symbol_pound}parse("ibatis-old.vm")
-${symbol_pound}end	
