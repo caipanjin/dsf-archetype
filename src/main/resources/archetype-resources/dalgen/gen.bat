@@ -1,6 +1,6 @@
 @echo off
 
-rem ÓÃÓÚÉèÖÃÃüÁîĞĞ´°¿Ú´óĞ¡
+rem ç”¨äºè®¾ç½®å‘½ä»¤è¡Œçª—å£å¤§å°
 IF DEFINED modeCmdExecuted GOTO START
 mode con cols=120 lines=3000
 set modeCmdExecuted="true"
@@ -12,10 +12,10 @@ set PATH=%ORACLE_HOME%;%ORACLE_HOME%\lib\win32;%PATH%
 set TNS_ADMIN=%ORACLE_HOME%\network\admin\tnsnames.ora
 
 echo ----------------------------------------------------------------------------
-echo ÃüÁîĞĞÊ¹ÓÃ: 
-echo gen dal [table_sql_name] ,¸ù¾İÊı¾İ¿â±íµÄÅäÖÃÎÄ¼şÉú³É´úÂë,(ĞèÒªÓĞxmlÅäÖÃÎÄ¼ş)
-echo gen table [table_sql_name] ¸ù¾İÊı¾İ¿â±íµÄÉú³É´úÂë,¿ÉÒÔÉú³ÉdalgenµÄÅäÖÃÎÄ¼ş(²»ĞèÒªxmlÅäÖÃÎÄ¼ş)
-echo gen seq : Éú³Éoracle sequence SeqDAOÉú³É´úÂë
+echo å‘½ä»¤è¡Œä½¿ç”¨: 
+echo gen dal [table_sql_name] ,æ ¹æ®æ•°æ®åº“è¡¨çš„é…ç½®æ–‡ä»¶ç”Ÿæˆä»£ç ,(éœ€è¦æœ‰xmlé…ç½®æ–‡ä»¶)
+echo gen table [table_sql_name] æ ¹æ®æ•°æ®åº“è¡¨çš„ç”Ÿæˆä»£ç ,å¯ä»¥ç”Ÿæˆdalgençš„é…ç½®æ–‡ä»¶(ä¸éœ€è¦xmlé…ç½®æ–‡ä»¶)
+echo gen seq : ç”Ÿæˆoracle sequence SeqDAOç”Ÿæˆä»£ç 
 
 mvn groovy:execute -DgeneratorConfigFile=gen_config.xml -DexecuteTarget=%1 -DgenInputCmd=%2  --errors
 

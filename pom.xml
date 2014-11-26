@@ -4,10 +4,22 @@
 
   <groupId>com.youzu.archetype</groupId>
   <artifactId>archetype-dubbo</artifactId>
-  <version>1.0.0</version>
+  <version>1.0.1</version>
   <packaging>maven-archetype</packaging>
 
   <name>archetype-dubbo</name>
+  <distributionManagement>
+    <repository>
+      <id>nexus-releases</id>
+      <name>Nexus Releases Repository</name>
+      <url>http://192.168.38.79:8081/nexus/content/repositories/releases/</url>
+    </repository>
+    <snapshotRepository>
+      <id>nexus-snapshots</id>
+      <name>Nexus Snapshots Repository</name>
+      <url>http://192.168.38.79:8081/nexus/content/repositories/snapshots/</url>
+    </snapshotRepository>
+  </distributionManagement>
 
   <build>
     <extensions>

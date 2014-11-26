@@ -35,13 +35,13 @@ def loadDefaultGeneratorProperties() {
 	GeneratorProperties.properties.put("generator_tools_class","cn.org.rapid_framework.generator.util.StringHelper,org.apache.commons.lang.StringUtils");
 	GeneratorProperties.properties.put("gg_isOverride","true");
 	
-	GeneratorProperties.properties.put("generator_sourceEncoding","GBK");
-	GeneratorProperties.properties.put("generator_outputEncoding","GBK");
+	GeneratorProperties.properties.put("generator_sourceEncoding","UTF-8");
+	GeneratorProperties.properties.put("generator_outputEncoding","UTF-8");
 	GeneratorProperties.properties.put("gg_isOverride","true");
-	//½«±íÃû´Ó¸´Êı×ª»»Îªµ¥Êı 
+	//å°†è¡¨åä»å¤æ•°è½¬æ¢ä¸ºå•æ•° 
 	GeneratorProperties.properties.put("tableNameSingularize","true");
 	if(pom != null) {
-		GeneratorProperties.load("${pom.basedir}/"+System.getProperty("generatorConfigFile")); //¼ÓÔØÅäÖÃÎÄ¼ş
+		GeneratorProperties.load("${pom.basedir}/"+System.getProperty("generatorConfigFile")); //åŠ è½½é…ç½®æ–‡ä»¶
 		GeneratorProperties.properties.put("basedir",pom.basedir);
 		GeneratorProperties.properties.putAll(pom.properties);
 	}else {
@@ -157,7 +157,7 @@ public class Helper {
 		}else {
 			TableConfig tableConfig = tableConfigSet.getBySqlName(tableSqlName);
 			if(tableConfig == null) {
-				throw new RuntimeException("¸ù¾İ±íÃû:${tableSqlName}Ã»ÓĞÕÒµ½ÅäÖÃÎÄ¼ş");
+				throw new RuntimeException("æ ¹æ®è¡¨å:${tableSqlName}æ²¡æœ‰æ‰¾åˆ°é…ç½®æ–‡ä»¶");
 			}
 			return Arrays.asList(tableConfig);
 		}

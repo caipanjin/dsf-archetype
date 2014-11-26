@@ -6,34 +6,13 @@
     <fileSet filtered="true" encoding="UTF-8">
       <directory>dalgen</directory>
       <includes>
-        <include>**/*.xml</include>
-        <include>**/*.properties</include>
-      </includes>
-    </fileSet>
-    <fileSet filtered="true" encoding="UTF-8">
-      <directory>dalgen/templates</directory>
-      <includes>
-        <include>**/*.vm</include>
+        <include>**/*</include>
       </includes>
     </fileSet>
     <fileSet filtered="true" encoding="UTF-8">
       <directory>dalgen/tables</directory>
       <includes>
-        <include>**/*.xml</include>
-      </includes>
-    </fileSet>
-    <fileSet encoding="UTF-8">
-      <directory>dalgen</directory>
-      <includes>
-        <include>**/*.1</include>
-        <include>**/*.sql</include>
-        <include>**/*.bat</include>
-      </includes>
-    </fileSet>
-    <fileSet encoding="UTF-8">
-      <directory>dalgen/lib</directory>
-      <includes>
-        <include>**/*.jar</include>
+        <include>**/*</include>
       </includes>
     </fileSet>
   </fileSets>
@@ -141,20 +120,13 @@
         <fileSet filtered="true" encoding="UTF-8">
           <directory>src/main/webapp</directory>
           <includes>
-            <include>**/*.xml</include>
+            <include>**/*</include>
           </includes>
-        </fileSet>
-        <fileSet filtered="true" encoding="UTF-8">
-          <directory>src/main/config</directory>
-          <includes>
-            <include>**/*.xml</include>
-            <include>**/*.properties</include>
-          </includes>
-        </fileSet>
+        </fileSet>  
         <fileSet encoding="UTF-8">
-          <directory>src/main/bin</directory>
+          <directory>src/main/resources</directory>
           <includes>
-            <include>**/*.bat</include>
+            <include>**/*</include>
           </includes>
         </fileSet>
       </fileSets>

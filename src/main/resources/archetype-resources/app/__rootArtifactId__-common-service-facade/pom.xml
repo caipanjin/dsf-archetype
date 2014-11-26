@@ -11,35 +11,14 @@
 		<repository>
 			<id>nexus-releases</id>
 			<name>Nexus Releases Repository</name>
-			<url>http://192.168.0.77:8081/nexus/content/repositories/releases/</url>
+			<url>http://192.168.38.79:8081/nexus/content/repositories/releases/</url>
 		</repository>
 		<snapshotRepository>
 			<id>nexus-snapshots</id>
 			<name>Nexus Snapshots Repository</name>
-			<url>http://192.168.0.77:8081/nexus/content/repositories/snapshots/</url>
+			<url>http://192.168.38.79:8081/nexus/content/repositories/snapshots/</url>
 		</snapshotRepository>
 	</distributionManagement>
-
-	<repositories>
-		<repository>
-			<id>my_public_central</id>
-			<name>My Repository Switchboard</name>
-			<layout>default</layout>
-			<url>http://192.168.0.77:8081/nexus/content/groups/public</url>
-			<snapshots>
-			</snapshots>
-		</repository>
-	</repositories>
-	<pluginRepositories>
-		<pluginRepository>
-			<id>my_public_central</id>
-			<name>My Repository Switchboard</name>
-			<layout>default</layout>
-			<url>http://192.168.0.77:8081/nexus/content/groups/public</url>
-			<snapshots>
-			</snapshots>
-		</pluginRepository>
-	</pluginRepositories>
 
 	<build>
 		<plugins>

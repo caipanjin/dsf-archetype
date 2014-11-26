@@ -2,7 +2,7 @@
 <!DOCTYPE table SYSTEM "table-config-1.0.dtd">
 
 <table sqlname="global_param">
-	<!-- ²»ÐèÒªÅäÖÃµÄÁÐÇëÉ¾³ý,Ò»°ãÖ»ÓÐMoneyÀàÐÍµÄcolumnÐèÒªÅäÖÃ: com.iwallet.biz.common.util.money.Money -->
+	<!-- ä¸éœ€è¦é…ç½®çš„åˆ—è¯·åˆ é™¤,ä¸€èˆ¬åªæœ‰Moneyç±»åž‹çš„columnéœ€è¦é…ç½®: com.iwallet.biz.common.util.money.Money -->
 
 	<sql id="GlobalParam.columns">
 		id, param_key, param_value, param_type,

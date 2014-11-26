@@ -257,6 +257,7 @@
                 <configuration>
                     <webApp>${basedir}/target/${rootArtifactId}.war</webApp>
                 </configuration>
+                <version>6.1.9</version>
             </plugin>
 		</plugins>
 	</build>
